@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 
-import {  Observable } from 'rxjs';
+import {  Observable, Subject } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { UserModel } from 'src/app/Model/user.model';
@@ -10,45 +10,114 @@ import { UserModel } from 'src/app/Model/user.model';
 })
 export class UserService {
  
-// public usermodel:UserModel[]=[
-//   {
-//      id: '0',
-//      Nom: 'imane',
-//    Prenom: "sabir",
-//     email: "sab@gmail.com",
-//     jobTitle: "admin",
-//     Telephone: "0612345678",
+public usermodel:UserModel[]=[
+  {
+     id: 0,
+     userName: 'imane',
+     firstName: "sabir",
+     lastName: "sabir",
+    email: "sab1@gmail.com",
+    phoneNumber: "0612345678",
+    DateOfRegistration:'def',
    
-//   },
-//   {
-//     id: '1',
-//     Nom: 'imanbbbbe',
-//   Prenom: "sabiddr",
-//    email: "saswdb@gmail.com",
-//    jobTitle: "admindwd",
-//    Telephone: "061234335678",
+   
+  },
+  {
+    id: 1,
+    userName: 'imane',
+    firstName: "sabir",
+    lastName: "sabir",
+   email: "sab2@gmail.com",
+   phoneNumber: "0612345678",
+   DateOfRegistration:'def',
+
+ },
+ {
+  id: 2,
+     userName: 'imane',
+     firstName: "sabir",
+     lastName: "sabir",
+    email: "sab3@gmail.com",
+    phoneNumber: "0612345678",
+    DateOfRegistration:'def',
   
-//  },
-//  {
-//   id: '2',
-//   Nom: 'imanqqqqqe',
-// Prenom: "sabiqqqqqr",
-//  email: "sabqqqq@gmail.com",
-//  jobTitle: "admin",
-//  Telephone: "0612345678",
 
-// }
-// ];
-// userSubject = new Subject<UserModel[]>();
+},
+{
+  id: 3,
+  userName: 'imane',
+  firstName: "sabir",
+  lastName: "sabir",
+ email: "sab4@gmail.com",
+ phoneNumber: "0612345678",
+ DateOfRegistration:'def',
+
+
+},
+{
+ id: 4,
+ userName: 'imane',
+ firstName: "sabir",
+ lastName: "sabir",
+email: "sab5@gmail.com",
+phoneNumber: "0612345678",
+DateOfRegistration:'def',
+
+},
+{
+id: 5,
+  userName: 'imane',
+  firstName: "sabir",
+  lastName: "sabir",
+ email: "sab6@gmail.com",
+ phoneNumber: "0612345678",
+ DateOfRegistration:'def',
+ 
+
+},
+{
+  id: 6,
+  userName: 'imane',
+  firstName: "sabir",
+  lastName: "sabir",
+ email: "sab7@gmail.com",
+ phoneNumber: "0612345678",
+ DateOfRegistration:'def',
+
+
+},
+{
+ id: 7,
+ userName: 'imane',
+ firstName: "sabir",
+ lastName: "sabir",
+email: "sab8@gmail.com",
+phoneNumber: "0612345678",
+DateOfRegistration:'def',
+
+},
+{
+id: 8,
+  userName: 'imane',
+  firstName: "sabir",
+  lastName: "sabir",
+ email: "sab9@gmail.com",
+ phoneNumber: "0612345678",
+ DateOfRegistration:'def',
+ 
+
+}
+];
+//userSubject = new Subject<UserModel[]>();
   constructor(private http:HttpClient) { }
-  // emitUsers() {
-  //   this.userSubject.next(this.usermodel.slice());
-  // }
+//   emitUsers() {
+//     this.userSubject.next(this.usermodel.slice());
+//   }
 
-  // addUser(user: UserModel) {
-  //   this.usermodel.push(user);
-  //   this.emitUsers();
-  // }
+//   addUser(user: UserModel) {
+//     this.usermodel.push(user);
+//     this.emitUsers();
+//   }
 //   deleteuser(id){
 //     console.log(this.usermodel[id]);
 //   for(var i=0;i<this.usermodel.length;i++){
@@ -76,12 +145,23 @@ private users_URL=environment.API_URL+'/User';
  GetAllUsers():Observable<UserModel[]>{
   return this.http.get<UserModel[]>(this.users_URL+'/GetAllUsers');
 }
+addUser(commande: UserModel): Observable<UserModel> {
+  return this.http.post<UserModel>(this.users_URL, commande);
+}
+
+getUserById(id: number): Observable<UserModel> {
+  const url = `${this.users_URL}/${id}`;
+  return this.http.get<UserModel>(url);
+}
+
+deleteUser (id: number): Observable<UserModel> {
+  const url = `${this.users_URL+'/deleteUser'}/${id}`;
+  return this.http.delete<UserModel>(url);
+  }
 
 
-
-
-
-
-
-
+  updateReservation (c: UserModel): Observable<any> {
+    const url = `${this.users_URL+'/modifyUser'}`;
+    return this.http.put(url, c);
+    }
 }

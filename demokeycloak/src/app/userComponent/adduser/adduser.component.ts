@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { UserService } from '../user.service';
+
 import { Router } from '@angular/router';
-import { UserModel } from '../Model/user.model';
+import { UserService } from 'src/app/common/services/user.service';
+import { UserModel } from 'src/app/Model/user.model';
+
 @Component({
   selector: 'app-adduser',
   templateUrl: './adduser.component.html',
@@ -30,7 +32,7 @@ export class AdduserComponent implements OnInit {
 onSubmitForm() {
   const formValue = this.userForm.value;
   const newUser = new UserModel(
-   this.userservice.usermodel.length.toString(),
+   //this.userservice.usermodel.length.toString(),
     formValue['Nom'],
     formValue['Prenom'],
     formValue['email'],
@@ -38,7 +40,7 @@ onSubmitForm() {
     formValue['Telephone'],
     
   );
-  this.userservice.addUser(newUser);
+ // this.userservice.addUser(newUser);
   this.router.navigate(['/users']);
 }
 }

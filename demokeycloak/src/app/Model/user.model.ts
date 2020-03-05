@@ -1,21 +1,23 @@
 export class UserModel {
-    public id: string;
-    public Nom: string;
-    public Prenom: string;
+    public id?: number;
+    public userName: string;
+    public firstName:string;
+    public lastName: string;
     public email: string;
-    public jobTitle: string;
-    public Telephone: string;
+    public phoneNumber: string;
     public roles?: string[];
+    public DateOfRegistration:string;
+    //public Action:string
     
     // Note: Using only optional constructor properties without backing store disables typescript's type checking for the type
-    constructor(id?: string, userName?: string, fullName?: string, email?: string, jobTitle?: string, phoneNumber?: string, roles?: string[]) {
+    constructor(id?: number, userName?: string, lastName?: string, firstName?: string,email?: string,  phoneNumber?: string, roles?: string[]) {
 
         this.id = id;
-        this.Nom= userName;
-        this.Prenom = fullName;
+        this.userName= userName;
+        this.lastName = lastName;
+        this.firstName = firstName;
         this.email = email;
-        this.jobTitle = jobTitle;
-        this.Telephone = phoneNumber;
+        this.phoneNumber = phoneNumber;
         this.roles = roles;
     }
 }
