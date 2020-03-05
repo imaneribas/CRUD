@@ -10,20 +10,27 @@ import {MatButtonModule} from '@angular/material/button';
 import { HttpClientModule } from '@angular/common/http';
 import { UsersmanageComponent } from './userComponent/usersmanage/usersmanage.component';
 import { AdduserComponent } from './userComponent/adduser/adduser.component';
-import { UpdateuserComponent } from './userComponent/updateuser/updateuser.component';
+
 import { DeleteuserpopupComponent } from './userComponent/deleteuserpopup/deleteuserpopup.component';
 import { AppRoutingModule } from './routing/app-routing.module';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatTableModule } from '@angular/material/table';
 import {MatInputModule} from '@angular/material/input';
+import {MatIconModule} from '@angular/material/icon';
+import {MatCardModule} from '@angular/material/card';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import { TestComponent } from './userComponent/test/test.component';
+import { UpdateUserComponent } from './userComponent/update-user/update-user.component';
 @NgModule({
   declarations: [
     AppComponent,
     NavMenuComponent,
     UsersmanageComponent,
     AdduserComponent,
-    UpdateuserComponent,
-    DeleteuserpopupComponent
+   
+    DeleteuserpopupComponent,
+    TestComponent,
+    UpdateUserComponent
   ],
   imports: [
     HttpClientModule,
@@ -40,8 +47,9 @@ import {MatInputModule} from '@angular/material/input';
  // MatFormFieldModule,
   // MatInputModule,
    // MatRippleModule,
-   MatInputModule
-   
+   MatInputModule,
+   MatIconModule,
+   MatCardModule,MatToolbarModule
   ],
   exports: [
     MatButtonModule,

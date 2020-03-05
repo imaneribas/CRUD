@@ -10,104 +10,104 @@ import { UserModel } from 'src/app/Model/user.model';
 })
 export class UserService {
  
-public usermodel:UserModel[]=[
-  {
-     id: 0,
-     userName: 'imane',
-     firstName: "sabir",
-     lastName: "sabir",
-    email: "sab1@gmail.com",
-    phoneNumber: "0612345678",
-    DateOfRegistration:'def',
+// public usermodel:UserModel[]=[
+//   {
+//      id: 0,
+//      userName: 'imane',
+//      firstName: "sabir",
+//      lastName: "sabir",
+//     email: "sab1@gmail.com",
+//     phoneNumber: "0612345678",
+//     DateOfRegistration:'def',
    
    
-  },
-  {
-    id: 1,
-    userName: 'imane',
-    firstName: "sabir",
-    lastName: "sabir",
-   email: "sab2@gmail.com",
-   phoneNumber: "0612345678",
-   DateOfRegistration:'def',
+//   },
+//   {
+//     id: 1,
+//     userName: 'imane',
+//     firstName: "sabir",
+//     lastName: "sabir",
+//    email: "sab2@gmail.com",
+//    phoneNumber: "0612345678",
+//    DateOfRegistration:'def',
 
- },
- {
-  id: 2,
-     userName: 'imane',
-     firstName: "sabir",
-     lastName: "sabir",
-    email: "sab3@gmail.com",
-    phoneNumber: "0612345678",
-    DateOfRegistration:'def',
+//  },
+//  {
+//   id: 2,
+//      userName: 'imane',
+//      firstName: "sabir",
+//      lastName: "sabir",
+//     email: "sab3@gmail.com",
+//     phoneNumber: "0612345678",
+//     DateOfRegistration:'def',
   
 
-},
-{
-  id: 3,
-  userName: 'imane',
-  firstName: "sabir",
-  lastName: "sabir",
- email: "sab4@gmail.com",
- phoneNumber: "0612345678",
- DateOfRegistration:'def',
+// },
+// {
+//   id: 3,
+//   userName: 'imane',
+//   firstName: "sabir",
+//   lastName: "sabir",
+//  email: "sab4@gmail.com",
+//  phoneNumber: "0612345678",
+//  DateOfRegistration:'def',
 
 
-},
-{
- id: 4,
- userName: 'imane',
- firstName: "sabir",
- lastName: "sabir",
-email: "sab5@gmail.com",
-phoneNumber: "0612345678",
-DateOfRegistration:'def',
+// },
+// {
+//  id: 4,
+//  userName: 'imane',
+//  firstName: "sabir",
+//  lastName: "sabir",
+// email: "sab5@gmail.com",
+// phoneNumber: "0612345678",
+// DateOfRegistration:'def',
 
-},
-{
-id: 5,
-  userName: 'imane',
-  firstName: "sabir",
-  lastName: "sabir",
- email: "sab6@gmail.com",
- phoneNumber: "0612345678",
- DateOfRegistration:'def',
+// },
+// {
+// id: 5,
+//   userName: 'imane',
+//   firstName: "sabir",
+//   lastName: "sabir",
+//  email: "sab6@gmail.com",
+//  phoneNumber: "0612345678",
+//  DateOfRegistration:'def',
  
 
-},
-{
-  id: 6,
-  userName: 'imane',
-  firstName: "sabir",
-  lastName: "sabir",
- email: "sab7@gmail.com",
- phoneNumber: "0612345678",
- DateOfRegistration:'def',
+// },
+// {
+//   id: 6,
+//   userName: 'imane',
+//   firstName: "sabir",
+//   lastName: "sabir",
+//  email: "sab7@gmail.com",
+//  phoneNumber: "0612345678",
+//  DateOfRegistration:'def',
 
 
-},
-{
- id: 7,
- userName: 'imane',
- firstName: "sabir",
- lastName: "sabir",
-email: "sab8@gmail.com",
-phoneNumber: "0612345678",
-DateOfRegistration:'def',
+// },
+// {
+//  id: 7,
+//  userName: 'imane',
+//  firstName: "sabir",
+//  lastName: "sabir",
+// email: "sab8@gmail.com",
+// phoneNumber: "0612345678",
+// DateOfRegistration:'def',
 
-},
-{
-id: 8,
-  userName: 'imane',
-  firstName: "sabir",
-  lastName: "sabir",
- email: "sab9@gmail.com",
- phoneNumber: "0612345678",
- DateOfRegistration:'def',
+// },
+// {
+// id: 8,
+//   userName: 'imane',
+//   firstName: "sabir",
+//   lastName: "sabir",
+//  email: "sab9@gmail.com",
+//  phoneNumber: "0612345678",
+//  DateOfRegistration:'def',
  
 
-}
-];
+// }
+// ];
 //userSubject = new Subject<UserModel[]>();
   constructor(private http:HttpClient) { }
 //   emitUsers() {
@@ -155,13 +155,17 @@ getUserById(id: number): Observable<UserModel> {
 }
 
 deleteUser (id: number): Observable<UserModel> {
-  const url = `${this.users_URL+'/deleteUser'}/${id}`;
+  const url = `${this.users_URL}/${id}`;
   return this.http.delete<UserModel>(url);
   }
 
 
-  updateReservation (c: UserModel): Observable<any> {
-    const url = `${this.users_URL+'/modifyUser'}`;
-    return this.http.put(url, c);
+  updateUser (user: UserModel): Observable<any> {
+    const url = `${this.users_URL}/${user.id}`;
+    return this.http.put(url, user);
     }
+//     update(user:UserModel){
+//       var userr=this.usermodel[user.id];
+// userr.userName=user.userName;
+//     }
 }

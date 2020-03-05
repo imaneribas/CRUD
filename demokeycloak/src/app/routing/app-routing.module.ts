@@ -3,7 +3,9 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { AdduserComponent } from '../userComponent/adduser/adduser.component';
 import { UsersmanageComponent } from '../userComponent/usersmanage/usersmanage.component';
-import { UpdateuserComponent } from '../userComponent/updateuser/updateuser.component';
+
+import { TestComponent } from '../userComponent/test/test.component';
+import { UpdateUserComponent } from '../userComponent/update-user/update-user.component';
 
 
 
@@ -13,11 +15,12 @@ import { UpdateuserComponent } from '../userComponent/updateuser/updateuser.comp
 
 const routes: Routes = [
 
-  {path:'users/update/:id',component:UpdateuserComponent},
+  {path:'users/update/:id',component:UpdateUserComponent},
   
   {path:'users',component:UsersmanageComponent},
 
   {path:'users/add',component:AdduserComponent},
+  {path:'users/test/:id',component:TestComponent},
   
   { path: '**', redirectTo: 'not-found' }
  

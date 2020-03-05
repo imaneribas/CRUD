@@ -3,10 +3,10 @@ export class UserModel {
     public userName: string;
     public firstName:string;
     public lastName: string;
-    public email: string;
+    public email?: string;
     public phoneNumber: string;
     public roles?: string[];
-    public DateOfRegistration:string;
+    public DateOfRegistration?:string;
     //public Action:string
     
     // Note: Using only optional constructor properties without backing store disables typescript's type checking for the type

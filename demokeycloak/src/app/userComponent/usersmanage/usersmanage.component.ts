@@ -5,7 +5,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { UserModel } from 'src/app/Model/user.model';
 import { UserService } from 'src/app/common/services/user.service';
 import { ConfirmDialogModel, DeleteuserpopupComponent } from '../deleteuserpopup/deleteuserpopup.component';
-import { UpdateuserComponent } from '../updateuser/updateuser.component';
+
 
 import { ActivatedRoute, Router } from '@angular/router';
 
@@ -30,8 +30,8 @@ export class UsersmanageComponent implements OnInit {
 
   async ngOnInit() {
     
-  
-    this.users=this.userService.usermodel;
+  this.users=await this.userService.GetAllUsers().toPromise();
+    //this.users=this.userService.usermodel;
     console.log(this.users);
     this.dataSource = new MatTableDataSource<UserModel>(this.users);
     this.dataSource.paginator = this.paginator;
@@ -83,19 +83,24 @@ deleteUser(id){
                                          });
                                          
            }
-updateUser(id:number){
-  this.isPopupOpen=true;
-  const idUserToUpdate = +this.activateroute.snapshot.paramMap.get('id');
-  const contact=this.userService.getUserById(id);
-const dialogRef=this.matdialog.open(UpdateuserComponent,{
-  data:{}
-});
+// updateUser(id:number){
+//   this.route.navigate[('update/:id')]
+//   this.isPopupOpen=true;
+//   const idUserToUpdate = +this.activateroute.snapshot.paramMap.get('id');
+//   //const contact=this.userService.getUserById(id);
+// const dialogRef=this.matdialog.open(UpdateuserComponent,{
+//   data:{}
+// });
 
-  dialogRef.afterClosed().subscribe(x=>{
-    this.isPopupOpen=false;
-  })
-           }
+//   dialogRef.afterClosed().subscribe(x => {
+//     this.isPopupOpen = false;
+//   });
+// }
 
+
+          
+        
+           
 
 
           
